@@ -4,8 +4,8 @@ var marge = 20;
 function setup() {
   canvas = createCanvas(1000,300);
   canvas.parent('processing');
-  textFont("Verdana");
-  textSize(letterGrootte);
+  textFont("Open Sans");
+  textSize(0.5*letterGrootte);
   textLeading(1.2*letterGrootte);
   //noLoop();
 }
@@ -14,7 +14,7 @@ function draw() {
   background('orange');
   fill('yellow');
   textAlign(LEFT, TOP);
-  text("mouseX:" + mouseX + "\nmouseY:" + mouseY,mouseX,mouseY);
+  text("mouseX:" + round(mouseX) + "mouseY:" +round(mouseY),mouseX,mouseY);
   translate(50,50);
   fill('black');
   text("vensterGrootte:\n" + windowWidth + " x " + windowHeight,0,0);
