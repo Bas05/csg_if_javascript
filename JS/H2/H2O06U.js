@@ -3,7 +3,7 @@ var aantalKolommenRaster = 9;
 var celGrootte;
 
 var spriteJos;
-var xJos = 400;
+var xJos = 400; //f
 var yJos = 300;
 
 function preload() {
