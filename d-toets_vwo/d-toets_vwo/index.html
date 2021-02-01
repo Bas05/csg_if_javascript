@@ -10,31 +10,50 @@
   var xBom = 850;
   var yBom = 250;
   var score = 0;
+  var level = 0;
   var snelheidBom = 2;
-  
+  var B;
+  var G;
+  var R;
+
 function setup() {
   var myCanvas = createCanvas(850, 500);
   myCanvas.parent('mijnDiv');
   noStroke();
   textSize(24);
   yBom=random(10,470);
+  B = random(0,256)
+  G = random(0,256)
+  R = random(0,256)
+
 }
 
 function draw() {
-  background('#ab3030');
+  background(B,G,R);
+  fill('white');
+  text("level: "+level, 720, 460);
   fill('white');
   text("SCORE: "+score, 720, 490);  
   if (keyIsDown(UP_ARROW)) {
-    hoogte = hoogte-3;
+    hoogte = hoogte-2;
   }
-  if (keyIsDown(DOWN_ARROW)) {
-    hoogte = hoogte+3;
+  else {
+  hoogte = hoogte+1;
   }  
   tekenVliegtuig(hoogte);
   tekenBom(xBom,yBom);  
   if (xBom==130 && yBom>hoogte-5 && yBom<hoogte+15) {
     score++;    
-    if (score==5) {
+  if (xBom==130 && yBom>hoogte-5 && yBom<hoogte+15) {
+    score = score + level
+    level++
+    B = random(0,256)
+    G = random(0,256)
+    R = random(0,256)
+    background(B,G,R); 
+
+  }
+    if (level==5) {
       noLoop();
       background('green');
       textSize(60);
